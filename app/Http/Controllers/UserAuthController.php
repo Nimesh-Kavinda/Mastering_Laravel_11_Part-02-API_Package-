@@ -9,7 +9,7 @@ use App\Models\User;
 class UserAuthController extends Controller
 {
     //
-    function login(Request $request){
+    function login(Request $request){   
         return "Login API Function";
     }
 
