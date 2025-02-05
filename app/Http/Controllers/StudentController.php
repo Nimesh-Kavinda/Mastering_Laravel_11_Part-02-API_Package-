@@ -61,4 +61,17 @@ class StudentController extends Controller
             }
         }
 
+
+        function searchStudent($name){
+            $student = Student::where('name', 'like', "%$name%")->get();
+
+            if($student){
+                return ["result" => $student];
+            }else {
+                return ["result" => "No Data Found"];
+
+            }
+
+        }
+
 }
