@@ -51,4 +51,14 @@ class StudentController extends Controller
         }
 
 
+        function deleteStudent($id){
+            $student = Student::destroy($id);
+
+            if($student){
+                return ["result" => "Student Deletd"];
+            } else {
+                return ["result" => "Student Not Deletd"];
+            }
+        }
+
 }
