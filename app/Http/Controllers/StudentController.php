@@ -20,12 +20,14 @@ class StudentController extends Controller
     function addStudent(Request $request){
 
         $rules = array(
-            'name' => "required | min:2 | max:12" 
+            "name" => "required | min:2 | max:20" ,
+            "email" => "required | email" ,
+            "phone" => "required | max:9" ,
         );
 
         $validation = Validator::make($request->all() , $rules);
 
-        if($validation->false()){
+        if($validation->fails()){
             return $validation->errors();
         } else {
 
