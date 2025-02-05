@@ -12,7 +12,23 @@ class StudentController extends Controller
         return Student::all();
     }
 
+    // function addStudent(Request $request){
+    //     return $request->input();
+    // }
+
     function addStudent(Request $request){
-        return $request->input();
+        $student = new Student();
+
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+
+        if($student->save()){
+            return ["result" => "New Student Added"];
+        } else {
+            return ["result" => "New Student Not Added"];
+        }
+
+        
     }
 }
